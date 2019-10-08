@@ -1,6 +1,20 @@
-var nod = document.getElementById("para");
-console.log("bonjour je suis le noeud " + nod.nodeName);
-console.log("Pour visualiser la difference entre firstChild et firstElementChild ");
-console.log("Bonjour je suis le first child : " + nod.firstChild);
-console.log("Bonjour je suis le firsst ElementChild : " + nod.firstElementChild);
+var parenti = document.querySelector("#item");
+var image = parenti.firstChild;
 
+var ligne = document.querySelector("li");
+var parent = ligne.parentNode ;
+var codeinterval = setInterval(function () {
+    if (ligne) {
+        var node = ligne;
+        ligne = ligne.nextElementSibling;
+        console.log(ligne);
+        parent.replaceChild(
+            image,
+            node);
+    }
+    else
+    {
+        console.log('end');
+        clearInterval(codeinterval) ;
+    }
+},1000);
